@@ -1,7 +1,10 @@
 import fetch from "node-fetch";
 import * as cheerio from "cheerio";
 
-const url = "https://coinmarketcap.com/currencies/monero/";
+//Full name of the cryptocurrency in lowercase e.g bitcoin
+let cryptoname = "ethereum"
+
+const url = "https://coinmarketcap.com/currencies/" + cryptoname + "/";
 const usd_eur = "https://www.investing.com/currencies/usd-eur";
 
 const cryptopriceEl = "span.sc-16891c57-0.dxubiK.base-text";
@@ -14,7 +17,7 @@ async function getcryptoPrice() {
   const $ = cheerio.load(html);
   const priceEl = $(cryptopriceEl);
   const price = priceEl.text().trim();
-  const parsedPrice = price.replace('$', '');
+  const parsedPrice = price.replace(/[^0-9.]/g, '');
 
   //Get usd eur exchange rate
   const exchangerateRes = await fetch(usd_eur);
@@ -25,10 +28,10 @@ async function getcryptoPrice() {
 
   const priceinEur = parsedPrice * usdeurexchangeRate;
 
-  console.log(parsedPrice);
-  console.log(usdeurexchangeRate);
+  // console.log(parsedPrice);
+  // console.log(usdeurexchangeRate);
 
-  console.log("Monero Price in EUR: " + priceinEur.toFixed(2));
+  console.log(cryptoname + " price in EUR: " + priceinEur.toFixed(2));
 }
 
 getcryptoPrice();
