@@ -1,1 +1,1 @@
-# Crypto-scraper
+Cryptocurrency price scraper made with nodejs
