@@ -2,7 +2,7 @@ import fetch from "node-fetch";
 import * as cheerio from "cheerio";
 
 //Full name of the cryptocurrency in lowercase e.g bitcoin
-let cryptoname = "ethereum"
+let cryptoname = "ethereum";
 
 const url = "https://coinmarketcap.com/currencies/" + cryptoname + "/";
 const usd_eur = "https://www.investing.com/currencies/usd-eur";
