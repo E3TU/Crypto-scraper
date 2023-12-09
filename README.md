@@ -21,7 +21,12 @@ npm install
 ```
 
 ## Usage
-
-```python
-Node main.js
+Run the script
+```bash
+node main.js
 ```
+Modify this variable to retrieve data for the specified cryptocurrency
+```bash
+let cryptoname = "ethereum"
+```
+
