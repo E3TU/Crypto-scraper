@@ -2,13 +2,13 @@ import fetch from "node-fetch";
 import * as cheerio from "cheerio";
 
 //Full name of the cryptocurrency in lowercase e.g bitcoin
-let cryptoname = "ethereum";
+let cryptoname = "monero";
 
 const url = "https://coinmarketcap.com/currencies/" + cryptoname + "/";
-const usd_eur = "https://www.investing.com/currencies/usd-eur";
+const usd_eur = "https://www.xe.com/currencyconverter/convert/?Amount=1&From=USD&To=EUR";
 
-const cryptopriceEl = "span.sc-16891c57-0.dxubiK.base-text";
-const usdeurpriceEl = "span.text-2xl";
+const cryptopriceEl = "span.sc-65e7f566-0.clvjgF.base-text";
+const usdeurpriceEl = "p.sc-e08d6cef-1.fwpLse"
 
 async function getcryptoPrice() {
   //Get price of the crypto
